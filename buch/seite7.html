@@ -5,32 +5,77 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Escape Game - Seite 7</title>
 <style>
-  body {margin: 0; padding: 0; background: #121212; color: #a0ffa0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; height: 100vh;}
-  main {flex: 1; padding: 2rem;}
-  h1 {font-size: 2.5rem; margin-bottom: 1rem; color: #5aff87;}
-  p {font-size: 1.3rem; max-width: 600px; line-height: 1.6;}
-  footer {position: fixed; bottom: 20px; right: 20px;}
-  input[type="text"] {padding: 0.5rem 1rem; font-size: 1.2rem; border-radius: 5px; border: none; outline: none; width: 120px; text-transform: uppercase; letter-spacing: 0.2em;}
-  button {margin-left: 10px; background: #5aff87; border: none; border-radius: 5px; padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; color: #121212; transition: background-color 0.3s ease;}
-  button:hover {background: #3ecf56;}
-  .error {color: #ff4c4c; margin-top: 0.5rem; font-weight: bold;}
+  body {
+    margin: 0; padding: 2rem;
+    background: #121212;
+    color: #7CFC00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #7CFC00;
+  }
+  p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  footer {
+    margin-top: auto;
+  }
+  input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  button {
+    margin-left: 10px;
+    background: #7CFC00;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #121212;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #3ecf56;
+  }
+  .error {
+    color: #ff4c4c;
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Seite 7: Dynabattle Minigame</h1>
-    <p>
-      Gewinne das Dynabattle Minigame und gib den erhaltenen Buchstaben ein.
-    </p>
-    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
-  </main>
+  <h1>Seite 7: Dynabattle Minigame</h1>
+  <p>
+    Um den Buchstaben <strong>A</strong> zu erhalten, musst du das Dynabattle-Minispiel gewinnen.<br>
+    Hier ist die Beschreibung:<br><br>
+    "Gewinne eine Runde Dynabattle auf MCCISLANDS!<br>
+    Nutze deine Fähigkeiten und Beweglichkeit, um als Sieger hervorzugehen."<br><br>
+    Viel Erfolg!
+  </p>
+
   <footer>
     <input id="inputLetter" type="text" maxlength="1" placeholder="Buchstabe" autofocus />
     <button onclick="checkLetter()">Eingeben</button>
+    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
   </footer>
 
 <script>
-  const correctLetter = 'Z'; // Buchstabe für Seite 7
+  const correctLetter = 'A'; // Buchstabe für Seite 7
 
   function checkLetter() {
     const input = document.getElementById('inputLetter').value.toUpperCase();
@@ -41,4 +86,9 @@
       errorMsg.style.display = 'block';
     }
   }
-  document.getElementById('
+  document.getElementById('inputLetter').addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') checkLetter();
+  });
+</script>
+</body>
+</html>
