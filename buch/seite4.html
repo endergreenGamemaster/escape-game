@@ -6,27 +6,34 @@
 <title>Escape Game - Seite 4</title>
 <style>
   body {
-    margin: 0;
-    background-color: #121212;
+    margin: 0; padding: 0;
+    background: #121212;
     color: #7CFC00;
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     display: flex;
     flex-direction: column;
-    min-height: 100vh;
+    height: 100vh;
   }
   main {
     flex: 1;
     padding: 2rem;
+    max-width: 700px;
+    margin: auto;
   }
   h1 {
     font-size: 2.5rem;
     margin-bottom: 1rem;
-    color: #5aff87;
+    color: #7CFC00;
+    text-shadow: 0 0 10px #7CFC00;
   }
   p {
     font-size: 1.3rem;
-    max-width: 600px;
     line-height: 1.6;
+  }
+  strong {
+    font-size: 1.6rem;
+    letter-spacing: 0.3em;
+    color: #a0ffa0;
   }
   footer {
     position: fixed;
@@ -45,7 +52,7 @@
   }
   button {
     margin-left: 10px;
-    background: #5aff87;
+    background: #7CFC00;
     border: none;
     border-radius: 5px;
     padding: 0.5rem 1rem;
@@ -68,8 +75,10 @@
   <main>
     <h1>Seite 4: Schwieriges Buchstabenrätsel</h1>
     <p>
-      Deine Challenge: Löse das schwierige Buchstabenrätsel.<br>
-      Wenn du den richtigen Buchstaben gefunden hast, gib ihn unten ein, um zur nächsten Seite zu gelangen.
+      Deine Challenge: Finde den versteckten Buchstaben in diesem Anagramm:<br><br>
+      <strong>"S E I S C H R R I L I E B"</strong><br><br>
+      Ordne die Buchstaben so, dass sie ein sinnvolles Wort ergeben. Der Buchstabe, der dabei übrig bleibt, ist dein Lösungsbuchstabe.<br><br>
+      Gib den Buchstaben unten ein, um zur nächsten Seite zu gelangen.
     </p>
     <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
   </main>
@@ -90,8 +99,6 @@
       errorMsg.style.display = 'block';
     }
   }
-
-  // Enter-Taste für Eingabe
   document.getElementById('inputLetter').addEventListener('keypress', function(e) {
     if(e.key === 'Enter') checkLetter();
   });
