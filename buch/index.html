@@ -3,97 +3,38 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Escape Game - Seite 1</title>
+<title>Buch - Seite 1</title>
 <style>
-  body {
-    margin: 0; padding: 0;
-    background: #121212;
-    color: #a0ffa0;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    height: 100vh;
-  }
-  main {
-    flex: 1;
-    padding: 2rem;
-  }
-  h1 {
-    font-size: 2.5rem;
-    margin-bottom: 1rem;
-    color: #5aff87;
-  }
-  p {
-    font-size: 1.3rem;
-    max-width: 600px;
-    line-height: 1.6;
-  }
-  footer {
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-  }
-  input[type="text"] {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border-radius: 5px;
-    border: none;
-    outline: none;
-    width: 120px;
-    text-transform: uppercase;
-    letter-spacing: 0.2em;
-  }
-  button {
-    margin-left: 10px;
-    background: #5aff87;
-    border: none;
-    border-radius: 5px;
-    padding: 0.5rem 1rem;
-    font-weight: bold;
-    cursor: pointer;
-    color: #121212;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background: #3ecf56;
-  }
-  .error {
-    color: #ff4c4c;
-    margin-top: 0.5rem;
-    font-weight: bold;
-  }
+  body { background: #121212; color: #7CFC00; font-family: Arial, sans-serif; padding: 2rem; }
+  a { color: #7CFC00; text-decoration: none; }
+  a:hover { text-decoration: underline; }
+  footer { position: fixed; bottom: 10px; right: 10px; }
+  input, button { font-size: 1rem; padding: 0.3rem 0.5rem; }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Seite 1: Der Schießstand</h1>
-    <p>
-      Deine Challenge: Triff mit dem Bogen 30 Ziele hintereinander.<br>
-      Wenn du das geschafft hast, gib den erhaltenen Buchstaben unten ein, um zur nächsten Seite zu gelangen.
-    </p>
-    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
-  </main>
+  <h1>Seite 1: Parkour Warrior</h1>
+  <p>Erreiche die Top 3 im Parkour Warrior Minigame.</p>
+  <p>Wenn du den Buchstaben hast, gib ihn unten ein, um zur nächsten Seite zu gelangen.</p>
   <footer>
-    <input id="inputLetter" type="text" maxlength="1" placeholder="Buchstabe" autofocus />
+    <input id="letter" maxlength="1" placeholder="Buchstabe" autofocus />
     <button onclick="checkLetter()">Eingeben</button>
   </footer>
 
-<script>
-  const correctLetter = 'S'; // Buchstabe für Seite 1
-
-  function checkLetter() {
-    const input = document.getElementById('inputLetter').value.toUpperCase();
-    const errorMsg = document.getElementById('errorMsg');
-    if (input === correctLetter) {
-      window.location.href = 'seite2.html';
-    } else {
-      errorMsg.style.display = 'block';
+  <script>
+    const correctLetter = 'K';
+    function checkLetter() {
+      const input = document.getElementById('letter').value.toUpperCase();
+      if(input === correctLetter) {
+        window.location.href = 'seite2.html'; // nächste Buchseite
+      } else {
+        alert('Falscher Buchstabe, versuche es nochmal!');
+      }
     }
-  }
-  // Enter-Taste für Eingabe
-  document.getElementById('inputLetter').addEventListener('keypress', function(e) {
-    if(e.key === 'Enter') checkLetter();
-  });
-</script>
+    document.getElementById('letter').addEventListener('keypress', e => {
+      if(e.key === 'Enter') checkLetter();
+    });
+  </script>
+  <p><a href="../index.html">Zurück zum Menü</a></p>
 </body>
 </html>
