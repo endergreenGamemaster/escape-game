@@ -1,140 +1,68 @@
 <!DOCTYPE html>
 <html lang="de">
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Escape Game Menü</title>
-<style>
-  body {
-    margin: 0;
-    background-color: #121212;
-    color: #7CFC00;
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    display: flex;
-    flex-direction: column;
-    min-height: 100vh;
-  }
-  header {
-    padding: 2rem;
-    text-align: center;
-    font-size: 2.8rem;
-    font-weight: bold;
-    letter-spacing: 0.1em;
-    text-shadow: 0 0 10px #7CFC00;
-  }
-  main {
-    flex: 1;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    gap: 2rem;
-  }
-  nav {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 1rem 2rem;
-    max-width: 700px;
-    justify-content: center;
-  }
-  nav a {
-    color: #7CFC00;
-    text-decoration: none;
-    font-size: 1.3rem;
-    padding: 1rem 2rem;
-    border: 2px solid #7CFC00;
-    border-radius: 8px;
-    box-shadow: 0 0 8px #7CFC00;
-    transition: background-color 0.3s ease, color 0.3s ease;
-  }
-  nav a:hover {
-    background-color: #7CFC00;
-    color: #121212;
-    box-shadow: 0 0 20px #7CFC00;
-  }
-  .tresor-input {
-    display: flex;
-    gap: 0.5rem;
-    align-items: center;
-  }
-  input[type="text"] {
-    padding: 0.5rem 1rem;
-    font-size: 1.2rem;
-    border: 2px solid #7CFC00;
-    border-radius: 8px;
-    background: #121212;
-    color: #7CFC00;
-    outline: none;
-    width: 250px;
-    transition: box-shadow 0.3s ease;
-  }
-  input[type="text"]:focus {
-    box-shadow: 0 0 10px #7CFC00;
-  }
-  button {
-    padding: 0.6rem 1.2rem;
-    font-size: 1.2rem;
-    background-color: #7CFC00;
-    color: #121212;
-    border: none;
-    border-radius: 8px;
-    cursor: pointer;
-    box-shadow: 0 0 8px #7CFC00;
-    transition: background-color 0.3s ease;
-  }
-  button:hover {
-    background-color: #56B000;
-  }
-  #result {
-    margin-top: 1rem;
-    font-weight: bold;
-    font-size: 1.3rem;
-    text-shadow: 0 0 8px #7CFC00;
-  }
-  footer {
-    text-align: center;
-    padding: 1rem;
-    font-size: 0.9rem;
-    color: #444;
-  }
-</style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Escape Game Menü</title>
+  <style>
+    body {
+      background-color: black;
+      color: #7CFC00;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      padding: 2rem;
+    }
+    a {
+      display: block;
+      margin: 1rem 0;
+      color: #7CFC00;
+      text-decoration: none;
+      font-size: 1.5rem;
+    }
+    input[type="text"] {
+      padding: 0.5rem;
+      font-size: 1rem;
+      margin-top: 1rem;
+    }
+    button {
+      padding: 0.5rem 1rem;
+      font-size: 1rem;
+      margin-top: 0.5rem;
+      background-color: #7CFC00;
+      color: black;
+      border: none;
+      cursor: pointer;
+    }
+  </style>
 </head>
 <body>
-  <header>Escape Game Menü</header>
-  <main>
-    <nav>
-      <a href="seite1.html">Seite 1 - Einführung</a>
-      <a href="seite2.html">Seite 2 - Gedichträtsel (B)</a>
-      <a href="seite3.html">Seite 3 - JumpLeague (C)</a>
-      <a href="seite4.html">Seite 4 - Buchstabenrätsel (S)</a>
-      <a href="seite5.html">Seite 5 - Schießstand (H)</a>
-      <a href="seite6.html">Seite 6 - Schwieriges Rätsel (R)</a>
-      <a href="seite7.html">Seite 7 - Dynabattle (A)</a>
-      <a href="seite8.html">Seite 8 - Gedicht mit Z</a>
-      <a href="seite9.html">Seite 9 - Diagonal-Gedicht (E)</a>
-      <a href="seite10.html">Seite 10 - Parkour Pyramid (MM)</a>
-    </nav>
+  <h1>Escape Game</h1>
+  <h2>📖 Buchseiten</h2>
+  <a href="buch/seite1.html">Seite 1</a>
+  <a href="buch/seite2.html">Seite 2</a>
+  <a href="buch/seite3.html">Seite 3</a>
+  <a href="buch/seite4.html">Seite 4</a>
+  <a href="buch/seite5.html">Seite 5</a>
+  <a href="buch/seite6.html">Seite 6</a>
+  <a href="buch/seite7.html">Seite 7</a>
+  <a href="buch/seite8.html">Seite 8</a>
+  <a href="buch/seite9.html">Seite 9</a>
+  <a href="buch/seite10.html">Seite 10</a>
 
-    <div class="tresor-input">
-      <input type="text" id="codeInput" placeholder="Tresor-Code eingeben" aria-label="Tresor-Code eingeben" />
-      <button onclick="checkCode()">Eingeben</button>
-    </div>
-    <div id="result" role="alert" aria-live="polite"></div>
-  </main>
-  <footer>© 2025 Dein Escape Game</footer>
+  <h2>🔐 Tresor öffnen</h2>
+  <input type="text" id="codeInput" placeholder="Code eingeben">
+  <button onclick="checkCode()">Öffnen</button>
+  <p id="result"></p>
 
-<script>
-  function checkCode() {
-    const input = document.getElementById('codeInput').value.trim().toUpperCase();
-    const result = document.getElementById('result');
-    if (input === 'SCHATZKAMMER') {
-      result.innerHTML = '✔️ Code korrekt! Zum <a href="tresor.html" style="color:#7CFC00; text-decoration: underline;">Tresor</a> gehen.';
-    } else if(input === '') {
-      result.textContent = 'Bitte gib einen Code ein.';
-    } else {
-      result.textContent = '❌ Falscher Code. Versuch es noch einmal!';
+  <script>
+    function checkCode() {
+      const input = document.getElementById("codeInput").value.trim().toUpperCase();
+      if (input === "SCHATZKAMMER") {
+        window.location.href = "tresor.html";
+      } else {
+        document.getElementById("result").textContent = "Falscher Code!";
+      }
     }
-  }
-</script>
+  </script>
 </body>
 </html>
