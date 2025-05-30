@@ -5,45 +5,110 @@
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Escape Game - Seite 8</title>
 <style>
-  body {margin: 0; padding: 0; background: #121212; color: #a0ffa0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; height: 100vh;}
-  main {flex: 1; padding: 2rem;}
-  h1 {font-size: 2.5rem; margin-bottom: 1rem; color: #5aff87;}
-  p {font-size: 1.3rem; max-width: 600px; line-height: 1.6;}
-  footer {position: fixed; bottom: 20px; right: 20px;}
-  input[type="text"] {padding: 0.5rem 1rem; font-size: 1.2rem; border-radius: 5px; border: none; outline: none; width: 120px; text-transform: uppercase; letter-spacing: 0.2em;}
-  button {margin-left: 10px; background: #5aff87; border: none; border-radius: 5px; padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; color: #121212; transition: background-color 0.3s ease;}
-  button:hover {background: #3ecf56;}
-  .error {color: #ff4c4c; margin-top: 0.5rem; font-weight: bold;}
+  body {
+    margin: 0; padding: 2rem;
+    background: #121212;
+    color: #7CFC00;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+  }
+  h1 {
+    font-size: 2.5rem;
+    margin-bottom: 1rem;
+    text-shadow: 0 0 10px #7CFC00;
+  }
+  p {
+    font-size: 1.3rem;
+    line-height: 1.6;
+    max-width: 700px;
+  }
+  footer {
+    margin-top: auto;
+  }
+  input[type="text"] {
+    padding: 0.5rem 1rem;
+    font-size: 1.2rem;
+    border-radius: 5px;
+    border: none;
+    outline: none;
+    width: 120px;
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+  }
+  button {
+    margin-left: 10px;
+    background: #7CFC00;
+    border: none;
+    border-radius: 5px;
+    padding: 0.5rem 1rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #121212;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #3ecf56;
+  }
+  .error {
+    color: #ff4c4c;
+    margin-top: 0.5rem;
+    font-weight: bold;
+  }
+  .riddle {
+    background: #0f360f;
+    padding: 1rem;
+    border-radius: 8px;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 0 8px #7CFC00;
+  }
 </style>
 </head>
 <body>
-  <main>
-    <h1>Seite 8: Endgegner-Rätsel</h1>
+  <h1>Seite 8: Kniffliges Buchstabenrätsel</h1>
+  <div class="riddle">
     <p>
-      Beantworte das Rätsel des Endgegners und gib den richtigen Buchstaben ein:<br><br>
-      „Was hat vier Beine am Morgen,<br>
-      zwei Beine am Mittag,<br>
-      und drei Beine am Abend?“
-    </p>
-    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
-  </main>
+      Finde den Buchstaben, der in diesem Rätsel gesucht wird:<br><br>
+      "Zähle alle Wörter mit einem 'Z' im Text:<br>
+      'Zwischen stillen Wäldern zieht
+ein leises Flüstern, sanft und wild.
+Die Zeit verweht, doch niemals flieht
+ein Zauber, der im Dunkeln spielt.
+
+Verwoben sind die Äste dicht,
+verhüllt im Nebel, zart und weich.
+Das Herz erkennt die leise Pflicht:
+Zu finden, was verborgen gleich.
+
+Sacht sacht, die Zeilen sollen zeigen,
+wo sich das Rätsel leis’ versteckt.
+Zähle genau und fang zu steigen,
+auf dass der Sinn dich nicht erschreckt..<br>
+    "<br><br>
+     
+  </div>
+
   <footer>
     <input id="inputLetter" type="text" maxlength="1" placeholder="Buchstabe" autofocus />
     <button onclick="checkLetter()">Eingeben</button>
+    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
   </footer>
 
 <script>
-  const correctLetter = 'M'; // Buchstabe für Seite 8 (Mensch aus Sphinx-Rätsel)
+  // Die richtige Antwort ist Z (26. Buchstabe)
+  const correctLetter = 'Z';
 
   function checkLetter() {
     const input = document.getElementById('inputLetter').value.toUpperCase();
     const errorMsg = document.getElementById('errorMsg');
     if (input === correctLetter) {
-      window.location.href = 'seite9.html';
+      window.location.href = 'seite9.html'; // Nächste Seite
     } else {
       errorMsg.style.display = 'block';
     }
   }
+
   document.getElementById('inputLetter').addEventListener('keypress', function(e) {
     if(e.key === 'Enter') checkLetter();
   });
