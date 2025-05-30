@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Escape Game - Seite 4</title>
+<style>
+  body {margin: 0; padding: 0; background: #121212; color: #a0ffa0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; display: flex; flex-direction: column; height: 100vh;}
+  main {flex: 1; padding: 2rem;}
+  h1 {font-size: 2.5rem; margin-bottom: 1rem; color: #5aff87;}
+  p {font-size: 1.3rem; max-width: 600px; line-height: 1.6;}
+  footer {position: fixed; bottom: 20px; right: 20px;}
+  input[type="text"] {padding: 0.5rem 1rem; font-size: 1.2rem; border-radius: 5px; border: none; outline: none; width: 120px; text-transform: uppercase; letter-spacing: 0.2em;}
+  button {margin-left: 10px; background: #5aff87; border: none; border-radius: 5px; padding: 0.5rem 1rem; font-weight: bold; cursor: pointer; color: #121212; transition: background-color 0.3s ease;}
+  button:hover {background: #3ecf56;}
+  .error {color: #ff4c4c; margin-top: 0.5rem; font-weight: bold;}
+</style>
+</head>
+<body>
+  <main>
+    <h1>Seite 4: Schwieriges Buchstabenrätsel</h1>
+    <p>
+      Finde den versteckten Buchstaben im Text:<br><br>
+      „Der Nebel senkt sich sanft herab,<br>
+      Geheimnisse verborgen im Waldgrab.<br>
+      Nur wer genau hinsieht, erkennt ihn klar,<br>
+      Den Buchstaben, der führt dich wunderbar.“
+    </p>
+    <div id="errorMsg" class="error" style="display:none;">Falscher Buchstabe, versuch es nochmal.</div>
+  </main>
+  <footer>
+    <input id="inputLetter" type="text" maxlength="1" placeholder="Buchstabe" autofocus />
+    <button onclick="checkLetter()">Eingeben</button>
+  </footer>
+
+<script>
+  const correctLetter = 'T'; // Buchstabe für Seite 4
+
+  function checkLetter() {
+    const input = document.getElementById('inputLetter').value.toUpperCase();
+    const errorMsg = document.getElementById('errorMsg');
+    if (input === correctLetter) {
+      window.location.href = 'seite5.html';
+    } else {
+      errorMsg.style.display = 'block';
+    }
+  }
+  document.getElementById('inputLetter').addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') checkLetter();
+  });
+</script>
+</body>
+</html>
