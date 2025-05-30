@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Tresor öffnen</title>
+<style>
+  body {
+    margin: 0; padding: 0;
+    background: #121212;
+    color: #a0ffa0;
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    display: flex;
+    flex-direction: column;
+    height: 100vh;
+    justify-content: center;
+    align-items: center;
+  }
+  h1 {
+    font-size: 2.5rem;
+    color: #5aff87;
+    margin-bottom: 1rem;
+  }
+  input[type="text"] {
+    padding: 0.7rem 1.2rem;
+    font-size: 1.5rem;
+    border-radius: 8px;
+    border: none;
+    outline: none;
+    width: 250px;
+    text-transform: uppercase;
+    letter-spacing: 0.3em;
+    text-align: center;
+  }
+  button {
+    margin-left: 15px;
+    background: #5aff87;
+    border: none;
+    border-radius: 8px;
+    padding: 0.7rem 1.5rem;
+    font-weight: bold;
+    cursor: pointer;
+    color: #121212;
+    font-size: 1.3rem;
+    transition: background-color 0.3s ease;
+  }
+  button:hover {
+    background: #3ecf56;
+  }
+  .message {
+    margin-top: 1rem;
+    font-size: 1.2rem;
+    font-weight: bold;
+  }
+  .error {
+    color: #ff4c4c;
+  }
+  .success {
+    color: #5aff87;
+  }
+</style>
+</head>
+<body>
+  <h1>Tresor öffnen</h1>
+  <div>
+    <input id="inputCode" type="text" maxlength="12" placeholder="Lösungswort eingeben" autofocus />
+    <button onclick="checkCode()">Öffnen</button>
+  </div>
+  <div id="message" class="message"></div>
+
+<script>
+  const correctCode = 'SCHATZKAMMER';
+
+  function checkCode() {
+    const input = document.getElementById('inputCode').value.toUpperCase().trim();
+    const message = document.getElementById('message');
+
+    if (input === correctCode) {
+      message.textContent = 'Tresor geöffnet! 🎉 Du erhältst 1000 Bits!';
+      message.className = 'message success';
+      // Hier könntest du noch Animationen oder Sound einbauen
+    } else {
+      message.textContent = 'Falsches Passwort. Versuch es nochmal!';
+      message.className = 'message error';
+    }
+  }
+
+  // Enter-Taste als Shortcut
+  document.getElementById('inputCode').addEventListener('keypress', function(e) {
+    if(e.key === 'Enter') checkCode();
+  });
+</script>
+</body>
+</html>
